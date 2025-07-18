@@ -136,7 +136,8 @@
 
 ## 무플방지위원회 Ⓜ️ 난이도 `MBTI E` : `하`, `MBTI I` : `상` | 중요도 : `매우 중요` | 권장 학습 시간 : `30분`
 
-![img_6.png](img_6.png)
+<img width="453" height="455" alt="img_6" src="https://github.com/user-attachments/assets/f908ee5d-f29e-4f8a-a095-1ff0826baf65" />
+
 
 ### 배경
 - 슬랙에는 무플이 있으면 안된다! 무플을 제거하는 것을 강력히 권고한다. 무플 제거는 AI가 도와줄 것이다. AI와 함께 커뮤니티를 활성화해보자.
