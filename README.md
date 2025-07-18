@@ -17,13 +17,15 @@
 - `AI`와 조금 더 친근하게 가벼운 놀이를 통해 스트레스를 해소하고 학습/구현의 스트레스를 가볍게 해소하는 통로가 된다.
 - `AI`와의 소통 경험을 쌓는다.
 ### 예상결과 및 동작예시
-![img_4.png](img_4.png)
+<img width="782" height="568" alt="img_4" src="https://github.com/user-attachments/assets/b2a759c4-e3a1-467e-b532-6a614dbbce5b" />
+
 
 ---
 
 ## 기분전환 Ⓜ️ 난이도 `하` ⭐ 중요도 `중요` ⭐⭐⭐ 권장 학습 시간 `30분` 미션해결 예상 시간 `15분`
 
-![img_5.png](img_5.png)
+<img width="457" height="455" alt="img_5" src="https://github.com/user-attachments/assets/8a294863-069b-4da8-b5ed-9e75f2ec545c" />
+
 
 ### 배경
 - 많은 챌린저들이 과제의 압박과 수면부족으로 부족하다. 그들에게는 그 어느때보다 일상의 도파민이 필요하다.
