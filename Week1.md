@@ -36,7 +36,8 @@
 
 ### 1️⃣ 학습 내용을 요약해주는 AI
 ####  `Lilys AI`
-![img.png](img.png)
+<img width="256" height="256" alt="img" src="https://github.com/user-attachments/assets/aa574e5e-b447-4d7e-87d6-3b034fe923b6" />
+
 
 - 영상, 웹 문서(링크), PDF 파일 등의 내용을 요약해서 보여주는  AI
 - 다양한 언어를 지원해서 영어 자료도 한국어로 쉽게 번역이 가능함
@@ -44,7 +45,8 @@
 
 
 ### 2️⃣ AI를 친구로 활용하기
-![img_2.png](img_2.png)
+<img width="512" height="512" alt="img_2" src="https://github.com/user-attachments/assets/ec41a08a-e7d7-486c-b356-18133c02f99c" />
+
 
 **ex) 감성형 `AI` 이루다**
 - 혼자 집에서 공부하거나 과제 등을 `AI`를 활용해서 할 때 조금 더 친구랑 함께 하는 느낌을 주는 감성형 `AI`
@@ -53,7 +55,8 @@
       - 진짜 사람과 음성으로 대화하는 듯한 `AI`
 
 ### 3️⃣ 운동&루틴을 추천해주는 AI `ex) FreeLetics`
-![img_3.png](img_3.png)
+<img width="512" height="512" alt="img_3" src="https://github.com/user-attachments/assets/1a459ef3-c87c-4064-9162-cd361eaaa18d" />
+
 
 - AI가 운동 루틴을 생성
 - 실시간 피드백 제공
