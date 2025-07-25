@@ -235,6 +235,52 @@
 
 **AI를 이겨라** Ⓜ️ 퀘스트
 
+단순하게 AI와 간단한 게임을 진행해 보았습니다.
+
+#### 가위바위보
+
+<img src="https://postfiles.pstatic.net/MjAyNTA3MjVfMTUy/MDAxNzUzNDE3MzUzMDQ2.Xyy7HZsh9Kk83NLnSoUDi8s2nr7-6mjZJSbbAXgOH2Yg.oq43D-WFZ7g-LPXsJvhoAbbwGkSpZrsR67dcLKaIGhog.JPEG/4.jpg?type=w966" alt="" width="600"/>
+
+AI가 먼저낼 줄은 몰랐지만 이기긴 했습니다 ㅋㅋㅋ
+
+#### 홀짝 게임
+
+<img src="https://postfiles.pstatic.net/MjAyNTA3MjVfODQg/MDAxNzUzNDE3MTE5MDU2.3cX2KW4BGCvPkGXrPaj1Q_4A34lcG1cFrA3T_r1Md58g.NCCA7yYQ9aSoprA8EOpP0K_RRRBJYpsGEmqV4UsnOaAg.JPEG/1.jpg?type=w966" alt="" width="600"/>
+
+AI가 정한 숫자가 홀인지, 짝인지 맞추는 게임. 운좋게 시작부터 맞췄네요. 
+
+#### 스무고개
+##### 맞추기
+
+사물이 주제라고 힌트를 줘서 아래와 같은 질문을 통해서 정답을 찾아내었습니다.
+```
+1. 보통 어디에 써?
+2. 크기가 큰 편이야?
+3. 전기가 필요해?
+4. 통화가 가능해?
+5. 인터넷이 가능해?
+```
+
+<img src="https://postfiles.pstatic.net/MjAyNTA3MjVfMjkw/MDAxNzUzNDE3MTE5MDUw.6YbqZ8Ykrxnophedrl-AvGJ7dWT18nuOR4Z9RcNExv4g.oMbyoLFycNBtfJKDo3AmoUEgXJKMJWLIORDVyMt7hpIg.JPEG/2.jpg?type=w966" alt="" width="600"/>
+
+##### 출제하기
+
+<img src="https://postfiles.pstatic.net/MjAyNTA3MjVfMTc1/MDAxNzUzNDE3MTE5MDUz.GigM3AXNVnME8T3P1gCvGNRrxmQeQhFUzHbeTogbu38g.K65AI3NPy2COm402CKpy3kFtnBYg31ZiA_U0Zr6fOwAg.JPEG/3.jpg?type=w966" alt="" width="600"/>
+
+AI는 맞추는 것에는 아쉽지만 재능이 없었습니다.
+
+#### 수행 경험
+- 해당 퀘스트를 수행하는 데 AI는 어떤 역할이었나요? AI가 없으면 동일한 결과를 얻을 수 없을까요?
+  - AI는 해당 퀘스트에서 같이 게임할 친구의 역할이었습니다. AI가 없었다면 같이 게임할 친구를 찾아야 동일한 결과를 얻을 수 있었을 것 같습니다.
+- 해당 퀘스트는 커뮤니티 또는 학습과 성장에 도움이 되었나요?
+  - AI의 한계를 체감할 수 있었던 퀘스트였던 것 같습니다.
+- 해당 퀘스트는 일주일동안 수행하기에 난이도나 분량이 어땠나요?
+  - 난이도는 매우 쉬웠습니다. 분량은 좀 아쉬운 부분이 있네요.
+- 해당 퀘스트를 수행하며 나에게는 어떤 변화가 있었나요?
+  - AI는 아직 만능하지 않다는 생각에 더 힘이 실리게 되었습니다. 
+- 이 외에도 한 주간 AI를 활용한 경험을 자유롭게 나눠 보세요.
+  - 그래도 역시 AI가 정보, 데이터 수집에는 탁월한 것 같습니다. 
+   이런 예체능적인 부분에 특화된 AI가 분명 존재할 것이라고 생각하고 (알파고와 같은), 각 분야별로 특화된 AI가 아닌 모든 분야 특화 AI가 나오면 무서울 것 같습니다.
 
 ### J04\_김채영
 
