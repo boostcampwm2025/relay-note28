@@ -222,7 +222,7 @@
 - **진행 내용**
    - 느낌점: 학습 내용을 담기에는 네컷은 부족하다는 느낌이 들었지만, 학습한 내용을 만화로 요약해서 볼 수 있는게 재밌었다. 이해하기 어려운 내용을 만화로 이해하기는 쉽지 않을 것 같다.
 
-<img width="170" height="255" alt="Image" src="https://github.com/user-attachments/assets/8967a235-7ce5-45be-a055-89ace2314517" />
+<img width="340" height="510" alt="Image" src="https://github.com/user-attachments/assets/8967a235-7ce5-45be-a055-89ace2314517" />
   
 
 <br>
