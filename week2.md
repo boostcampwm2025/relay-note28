@@ -257,4 +257,18 @@
    - 글은 압축된 정보를 빠르게 받아들일 수 있는 좋은 수단이지만 때론 너무 딱딱해 이해가 어렵다
    - 만화로 개념을 표현한다면 좀 더 쉽고 빠르게 개념을 이해하고 원활하게 미션을 수행할 수 있을 것 같아 선정했다.
 - **진행 내용**
-   - 예정
+   - 동기와 비동기 개념에 대해 설명해줘
+
+<a href="https://ibb.co/3Pdv5sf"><img src="https://i.ibb.co/kPBJVy3/Pasted-image-20250731205006.png" alt="Pasted-image-20250731205006" border="0"></a>
+
+   - 이벤트 기반 프로그래밍을 4컷만화로 표현해줘 
+<a href="https://ibb.co/35yvMF33"><img src="https://i.ibb.co/Q7FkCHgg/Pasted-image-20250731221016.png" alt="Pasted-image-20250731221016" border="0"></a>
+
+   - 깃의 주요 오브젝트 들에 대해 4컷만화로 설명해줘
+<a href="https://ibb.co/QjJGhDVF"><img src="https://i.ibb.co/7NSFBkDJ/Pasted-image-20250731230125.png" alt="Pasted-image-20250731230125" border="0"></a>
+
+    - 깃 클론이 어떻게 동작하는지 4컷만화로 그려줘
+<a href="https://ibb.co/XrJRWWM4"><img src="https://i.ibb.co/mVzWRRgB/Pasted-image-20250801023508.png" alt="Pasted-image-20250801023508" border="0"></a>
+    
+- **느낀 점**
+  - AI가 생각보다 4컷 안에 개념을 담아내지 못해 아쉬웠다. 답변을 글로 받는게 이해하긴 좀 어려울지 몰라도 정확한 내용을 알려줄수 있어 더 나은것 같다
