@@ -265,14 +265,6 @@
 이벤트 기반 프로그래밍을 4컷만화로 표현해줘 
 
 <a href="https://ibb.co/35yvMF33"><img src="https://i.ibb.co/Q7FkCHgg/Pasted-image-20250731221016.png" alt="Pasted-image-20250731221016" border="0"></a>
-
-깃의 주요 오브젝트 들에 대해 4컷만화로 설명해줘
-
-<a href="https://ibb.co/QjJGhDVF"><img src="https://i.ibb.co/7NSFBkDJ/Pasted-image-20250731230125.png" alt="Pasted-image-20250731230125" border="0"></a>
-
-깃 클론이 어떻게 동작하는지 4컷만화로 그려줘
-
-<a href="https://ibb.co/XrJRWWM4"><img src="https://i.ibb.co/mVzWRRgB/Pasted-image-20250801023508.png" alt="Pasted-image-20250801023508" border="0"></a>
     
 - **느낀 점**
   - AI가 생각보다 4컷 안에 개념을 담아내지 못해 아쉬웠다. 답변을 글로 받는게 이해하긴 좀 어려울지 몰라도 정확한 내용을 알려줄수 있어 더 나은것 같다
