@@ -260,11 +260,11 @@
 
 동기와 비동기 개념에 대해 설명해줘
 
-<a href="https://ibb.co/3Pdv5sf"><img src="https://i.ibb.co/kPBJVy3/Pasted-image-20250731205006.png" alt="Pasted-image-20250731205006" border="0"></a>
+<a href="https://ibb.co/3Pdv5sf"><img img width="340" height="510" src="https://i.ibb.co/kPBJVy3/Pasted-image-20250731205006.png" alt="Pasted-image-20250731205006" border="0"></a>
 
 이벤트 기반 프로그래밍을 4컷만화로 표현해줘 
 
-<a href="https://ibb.co/35yvMF33"><img src="https://i.ibb.co/Q7FkCHgg/Pasted-image-20250731221016.png" alt="Pasted-image-20250731221016" border="0"></a>
+<a href="https://ibb.co/35yvMF33"><img img width="340" height="510" src="https://i.ibb.co/Q7FkCHgg/Pasted-image-20250731221016.png" alt="Pasted-image-20250731221016" border="0"></a>
     
 - **느낀 점**
   - AI가 생각보다 4컷 안에 개념을 담아내지 못해 아쉬웠다. 답변을 글로 받는게 이해하긴 좀 어려울지 몰라도 정확한 내용을 알려줄수 있어 더 나은것 같다
