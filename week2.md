@@ -243,7 +243,11 @@
    - 영어시간에 가르쳐준 노래가 인상이 깊어 기억이 잘됐던 기억이 나서 도움이 될것 같았다
    - 가사에 라임을 넣으면 금방 기억이 날것같다
 - **진행 내용**
-   - 예정
+  - 느낀점 : 음성 지원이 안되는게 아쉽다. 라임은 느껴지고 의외로 각인이 잘되는데 음이 들어가면 더 기억이 잘될거같다.
+      - 개념들을 라임이 느껴지게 작성해달라고해야 퀄리티가 좋다 
+   - <img width="1082" height="1161" alt="image" src="https://github.com/user-attachments/assets/fad74213-3fd5-474d-8d7f-6d5aa7291260" />
+  - <img width="1160" height="1232" alt="image" src="https://github.com/user-attachments/assets/e3ace5c4-6d3d-4536-88b0-199d4598fec3" />
+
 <br>
 
 #### [J288 허우솔]
