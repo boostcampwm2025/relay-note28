@@ -404,16 +404,17 @@ AI를 활용해 학습의 "시작점"을 찾고, 낯선 개념을 친숙하게 �
 
 평소 스트레칭 할때 했던 동작이 나와서 스트레칭 하는 방법은 추가로 찾아보지 않고 3회 스트레칭을 진행했다. 날씨도 덥고 해서 집에서 의자에 앉아 미션만 진행했는데 스트레칭의 필요성을 다시 리마인드 할 수 있는 기회였던것 같다.
 
-
 ### K009 김정우
 
 #### 수행 미션
+
 - 미션3. AI 추천 스트레칭 – 강제로라도 움직이기
 - 선정한 이유
   1. 평소 운동은 꾸준히 갔었는데 챌린지 미션들을 수행하면서 밤을 새거나 수면 시간이 줄어들어 못가는 경우가 많았다.
   2. 앉아 있는 시간이 평소보다 늘어나서 방에서라도 스트레칭할 수 있는 방법이 궁금해서 해당 릴레이 미션을 선택했다.
 
 #### 프롬프트
+
 ```
 상황 설명
 나는 평소 운동을 꾸준히 했지만, 최근 챌린지 미션들로 인해 수면 시간이 줄어들고 앉아 있는 시간이 크게 늘어났어.
@@ -443,443 +444,517 @@ AI를 활용해 학습의 "시작점"을 찾고, 낯선 개념을 친숙하게 �
 <details>
   <summary>코드</summary>
 
-  ```html
-  <!DOCTYPE html>
-  <html lang="ko">
+```html
+<!DOCTYPE html>
+<html lang="ko">
   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>개인 맞춤 스트레칭 루틴</title>
-      <style>
-          * {
-              margin: 0;
-              padding: 0;
-              box-sizing: border-box;
-          }
-          
-          body {
-              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              line-height: 1.6;
-              color: #333;
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-              min-height: 100vh;
-          }
-          
-          .container {
-              max-width: 900px;
-              margin: 0 auto;
-              padding: 20px;
-          }
-          
-          .header {
-              background: rgba(255, 255, 255, 0.95);
-              backdrop-filter: blur(10px);
-              border-radius: 20px;
-              padding: 30px;
-              margin-bottom: 30px;
-              box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-              text-align: center;
-          }
-          
-          .header h1 {
-              color: #4a5568;
-              font-size: 2.5em;
-              margin-bottom: 10px;
-              text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-          }
-          
-          .header p {
-              color: #718096;
-              font-size: 1.1em;
-          }
-          
-          .routine-selector {
-              display: flex;
-              justify-content: center;
-              gap: 15px;
-              margin: 30px 0;
-              flex-wrap: wrap;
-          }
-          
-          .routine-btn {
-              background: rgba(255, 255, 255, 0.9);
-              border: none;
-              padding: 15px 25px;
-              border-radius: 50px;
-              cursor: pointer;
-              font-size: 1em;
-              font-weight: bold;
-              transition: all 0.3s ease;
-              box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-              color: #4a5568;
-          }
-          
-          .routine-btn:hover, .routine-btn.active {
-              transform: translateY(-3px);
-              box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-              background: linear-gradient(45deg, #667eea, #764ba2);
-              color: white;
-          }
-          
-          .routine-content {
-              display: none;
-              animation: fadeIn 0.5s ease-in;
-          }
-          
-          .routine-content.active {
-              display: block;
-          }
-          
-          @keyframes fadeIn {
-              from { opacity: 0; transform: translateY(20px); }
-              to { opacity: 1; transform: translateY(0); }
-          }
-          
-          .stretch-card {
-              background: rgba(255, 255, 255, 0.95);
-              backdrop-filter: blur(10px);
-              border-radius: 15px;
-              padding: 25px;
-              margin-bottom: 20px;
-              box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-              transition: transform 0.3s ease;
-          }
-          
-          .stretch-card:hover {
-              transform: translateY(-5px);
-          }
-          
-          .stretch-title {
-              font-size: 1.4em;
-              font-weight: bold;
-              color: #4a5568;
-              margin-bottom: 15px;
-              display: flex;
-              align-items: center;
-              gap: 10px;
-          }
-          
-          .time-badge {
-              background: linear-gradient(45deg, #667eea, #764ba2);
-              color: white;
-              padding: 5px 12px;
-              border-radius: 20px;
-              font-size: 0.8em;
-          }
-          
-          .stretch-description {
-              color: #555;
-              margin-bottom: 15px;
-              font-size: 1.05em;
-          }
-          
-          .instructions {
-              background: #f7fafc;
-              border-radius: 10px;
-              padding: 15px;
-              margin: 10px 0;
-          }
-          
-          .instructions h4 {
-              color: #4a5568;
-              margin-bottom: 8px;
-              font-size: 1.1em;
-          }
-          
-          .instructions ol {
-              margin-left: 20px;
-          }
-          
-          .instructions li {
-              margin-bottom: 5px;
-              color: #666;
-          }
-          
-          .tips {
-              background: linear-gradient(135deg, #e6fffa, #b2f5ea);
-              border-radius: 10px;
-              padding: 15px;
-              margin-top: 10px;
-              border-left: 4px solid #38b2ac;
-          }
-          
-          .tips h4 {
-              color: #234e52;
-              margin-bottom: 8px;
-          }
-          
-          .tips p {
-              color: #285e61;
-              font-size: 0.95em;
-          }
-          
-          .routine-overview {
-              background: rgba(255, 255, 255, 0.95);
-              backdrop-filter: blur(10px);
-              border-radius: 15px;
-              padding: 25px;
-              margin-bottom: 30px;
-              text-align: center;
-          }
-          
-          .time-info {
-              display: flex;
-              justify-content: space-around;
-              margin: 20px 0;
-              flex-wrap: wrap;
-              gap: 10px;
-          }
-          
-          .time-item {
-              background: linear-gradient(45deg, #667eea, #764ba2);
-              color: white;
-              padding: 15px 20px;
-              border-radius: 10px;
-              min-width: 120px;
-          }
-          
-          .time-item h3 {
-              font-size: 1.2em;
-              margin-bottom: 5px;
-          }
-          
-          .time-item p {
-              font-size: 0.9em;
-              opacity: 0.9;
-          }
-          
-          @media (max-width: 768px) {
-              .container { padding: 10px; }
-              .header h1 { font-size: 2em; }
-              .routine-btn { padding: 12px 20px; font-size: 0.9em; }
-              .time-info { flex-direction: column; align-items: center; }
-          }
-      </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>개인 맞춤 스트레칭 루틴</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .header {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .header h1 {
+        color: #4a5568;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .header p {
+        color: #718096;
+        font-size: 1.1em;
+      }
+
+      .routine-selector {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 30px 0;
+        flex-wrap: wrap;
+      }
+
+      .routine-btn {
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        padding: 15px 25px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        color: #4a5568;
+      }
+
+      .routine-btn:hover,
+      .routine-btn.active {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+      }
+
+      .routine-content {
+        display: none;
+        animation: fadeIn 0.5s ease-in;
+      }
+
+      .routine-content.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .stretch-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .stretch-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .stretch-title {
+        font-size: 1.4em;
+        font-weight: bold;
+        color: #4a5568;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .time-badge {
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8em;
+      }
+
+      .stretch-description {
+        color: #555;
+        margin-bottom: 15px;
+        font-size: 1.05em;
+      }
+
+      .instructions {
+        background: #f7fafc;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 10px 0;
+      }
+
+      .instructions h4 {
+        color: #4a5568;
+        margin-bottom: 8px;
+        font-size: 1.1em;
+      }
+
+      .instructions ol {
+        margin-left: 20px;
+      }
+
+      .instructions li {
+        margin-bottom: 5px;
+        color: #666;
+      }
+
+      .tips {
+        background: linear-gradient(135deg, #e6fffa, #b2f5ea);
+        border-radius: 10px;
+        padding: 15px;
+        margin-top: 10px;
+        border-left: 4px solid #38b2ac;
+      }
+
+      .tips h4 {
+        color: #234e52;
+        margin-bottom: 8px;
+      }
+
+      .tips p {
+        color: #285e61;
+        font-size: 0.95em;
+      }
+
+      .routine-overview {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .time-info {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .time-item {
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 10px;
+        min-width: 120px;
+      }
+
+      .time-item h3 {
+        font-size: 1.2em;
+        margin-bottom: 5px;
+      }
+
+      .time-item p {
+        font-size: 0.9em;
+        opacity: 0.9;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 10px;
+        }
+        .header h1 {
+          font-size: 2em;
+        }
+        .routine-btn {
+          padding: 12px 20px;
+          font-size: 0.9em;
+        }
+        .time-info {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
   </head>
   <body>
-      <div class="container">
-          <div class="header">
-              <h1>🧘‍♂️ 개인 맞춤 스트레칭 루틴</h1>
-              <p>장시간 앉아있기로 인한 근육 경직 완화 & 스트레스 해소</p>
-          </div>
-          
-          <div class="routine-overview">
-              <h2>🎯 루틴 구성</h2>
-              <div class="time-info">
-                  <div class="time-item">
-                      <h3>아침</h3>
-                      <p>5-10분</p>
-                  </div>
-                  <div class="time-item">
-                      <h3>휴식시간</h3>
-                      <p>10-15분</p>
-                  </div>
-                  <div class="time-item">
-                      <h3>저녁</h3>
-                      <p>15-20분</p>
-                  </div>
-              </div>
-          </div>
-          
-          <div class="routine-selector">
-              <button class="routine-btn active" onclick="showRoutine('morning')">🌅 아침 루틴</button>
-              <button class="routine-btn" onclick="showRoutine('break')">☕ 휴식시간 루틴</button>
-              <button class="routine-btn" onclick="showRoutine('evening')">🌙 저녁 루틴</button>
-          </div>
-          
-          <div id="morning" class="routine-content active">
-              <div class="stretch-card">
-                  <div class="stretch-title">
-                      목과 어깨 깨우기 <span class="time-badge">2분</span>
-                  </div>
-                  <div class="stretch-description">
-                      수면으로 경직된 목과 어깨 근육을 부드럽게 깨워줍니다.
-                  </div>
-                  <div class="instructions">
-                      <h4>실행 방법:</h4>
-                      <ol>
-                          <li>어깨를 앞뒤로 천천히 돌리기 (각 방향 10회)</li>
-                          <li>목을 좌우로 천천히 돌리기 (각 방향 5회)</li>
-                          <li>목을 좌우로 기울여 측면 근육 늘리기 (각 15초)</li>
-                      </ol>
-                  </div>
-                  <div class="tips">
-                      <h4>💡 포인트:</h4>
-                      <p>급하게 하지 말고 천천히 진행하세요. 통증이 느껴지면 범위를 줄이세요.</p>
-                  </div>
-              </div>
-              
-              <div class="stretch-card">
-                  <div class="stretch-title">
-                      척추 모빌리티 <span class="time-badge">3분</span>
-                  </div>
-                  <div class="stretch-description">
-                      하루를 위해 척추의 움직임을 활성화시킵니다.
-                  </div>
-                  <div class="instructions">
-                      <h4>실행 방법:</h4>
-                      <ol>
-                          <li>서서 허리를 좌우로 비틀기 (각 방향 10회)</li>
-                          <li>캣-카우 자세 (무릎 꿇고 등을 둥글게/반대로 10회)</li>
-                          <li>앞으로 구부리기 후 천천히 일어나기 (5회)</li>
-                      </ol>
-                  </div>
-                  <div class="tips">
-                      <h4>💡 포인트:</h4>
-                      <p>척추를 마디마디 느끼며 움직이세요. 호흡과 함께 진행하면 더 효과적입니다.</p>
-                  </div>
-              </div>
-          </div>
-          
-          <div id="break" class="routine-content">
-              <div class="stretch-card">
-                  <div class="stretch-title">
-                      어깨와 목 긴장 해소 <span class="time-badge">4분</span>
-                  </div>
-                  <div class="stretch-description">
-                      장시간 컴퓨터 작업으로 경직된 상체 근육을 풀어줍니다.
-                  </div>
-                  <div class="instructions">
-                      <h4>실행 방법:</h4>
-                      <ol>
-                          <li>어깨 으쓱하기 (10초 유지 후 힘 빼기, 5회)</li>
-                          <li>팔을 반대편으로 당겨 어깨 뒤쪽 늘리기 (각 팔 30초)</li>
-                          <li>목 뒤에서 팔꿈치 잡고 옆구리 늘리기 (각 30초)</li>
-                          <li>턱 당기기로 목 뒤쪽 늘리기 (15초 유지, 5회)</li>
-                      </ol>
-                  </div>
-              </div>
-              
-              <div class="stretch-card">
-                  <div class="stretch-title">
-                      허리와 엉덩이 활성화 <span class="time-badge">5분</span>
-                  </div>
-                  <div class="stretch-description">
-                      앉아있기로 인해 굳어진 허리와 엉덩이 근육을 활성화합니다.
-                  </div>
-                  <div class="instructions">
-                      <h4>실행 방법:</h4>
-                      <ol>
-                          <li>선 자세에서 무릎을 가슴으로 당기기 (각 다리 30초)</li>
-                          <li>비둘기 자세 (각 다리 45초)</li>
-                          <li>서서 고관절 돌리기 (각 방향 10회)</li>
-                          <li>런지 자세로 고관절 앞쪽 늘리기 (각 다리 30초)</li>
-                      </ol>
-                  </div>
-              </div>
-              
-              <div class="stretch-card">
-                  <div class="stretch-title">
-                      눈과 손목 케어 <span class="time-badge">2분</span>
-                  </div>
-                  <div class="stretch-description">
-                      장시간 컴퓨터 사용으로 피로한 눈과 손목을 관리합니다.
-                  </div>
-                  <div class="instructions">
-                      <h4>실행 방법:</h4>
-                      <ol>
-                          <li>눈동자 상하좌우 운동 (각 방향 10회)</li>
-                          <li>손목 돌리기 (각 방향 10회)</li>
-                          <li>손가락 펴고 오므리기 (10회)</li>
-                          <li>손목을 반대편으로 당겨 늘리기 (각 15초)</li>
-                      </ol>
-                  </div>
-              </div>
-          </div>
-          
-          <div id="evening" class="routine-content">
-              <div class="stretch-card">
-                  <div class="stretch-title">
-                      전신 이완 시퀀스 <span class="time-badge">8분</span>
-                  </div>
-                  <div class="stretch-description">
-                      하루 종일 쌓인 전신의 긴장을 단계적으로 풀어줍니다.
-                  </div>
-                  <div class="instructions">
-                      <h4>실행 방법:</h4>
-                      <ol>
-                          <li>차일드 포즈로 시작 (1분간 깊은 호흡)</li>
-                          <li>캣-카우 자세로 척추 이완 (1분)</li>
-                          <li>비둘기 자세 양쪽 (각 1분)</li>
-                          <li>누워서 무릎을 가슴으로 당기기 (1분)</li>
-                          <li>누운 비틀기 자세 (각쪽 1분)</li>
-                          <li>다리 벽에 올리고 이완 (2분)</li>
-                      </ol>
-                  </div>
-              </div>
-              
-              <div class="stretch-card">
-                  <div class="stretch-title">
-                      깊은 호흡과 명상 <span class="time-badge">7분</span>
-                  </div>
-                  <div class="stretch-description">
-                      수면 준비와 스트레스 해소를 위한 마무리 루틴입니다.
-                  </div>
-                  <div class="instructions">
-                      <h4>실행 방법:</h4>
-                      <ol>
-                          <li>편안한 자세로 앉기 (1분)</li>
-                          <li>4-7-8 호흡법 (4초 들이마시기, 7초 참기, 8초 내쉬기, 5회)</li>
-                          <li>바디스캔 명상 (발끝부터 머리까지 의식적으로 이완, 4분)</li>
-                          <li>감사 명상 (하루 중 좋았던 것 3가지 떠올리기, 1분)</li>
-                      </ol>
-                  </div>
-              </div>
-              
-              <div class="stretch-card">
-                  <div class="stretch-title">
-                      수면 준비 스트레칭 <span class="time-badge">5분</span>
-                  </div>
-                  <div class="stretch-description">
-                      편안한 수면을 위한 마지막 몸 정리입니다.
-                  </div>
-                  <div class="instructions">
-                      <h4>실행 방법:</h4>
-                      <ol>
-                          <li>침대에서 무릎 흔들기 (1분)</li>
-                          <li>발목 돌리고 종아리 늘리기 (2분)</li>
-                          <li>어깨 이완 및 목 마사지 (1분)</li>
-                          <li>최종 이완 자세로 깊은 호흡 (1분)</li>
-                      </ol>
-                  </div>
-                  <div class="tips">
-                      <h4>💡 수면 팁:</h4>
-                      <p>스트레칭 후 바로 잠자리에 들어가세요. 스마트폰 사용은 자제하고 편안한 음악이나 백색소음을 활용하세요.</p>
-                  </div>
-              </div>
-          </div>
+    <div class="container">
+      <div class="header">
+        <h1>🧘‍♂️ 개인 맞춤 스트레칭 루틴</h1>
+        <p>장시간 앉아있기로 인한 근육 경직 완화 & 스트레스 해소</p>
       </div>
-      
-      <script>
-          function showRoutine(routineType) {
-              // 모든 버튼에서 active 클래스 제거
-              const buttons = document.querySelectorAll('.routine-btn');
-              buttons.forEach(btn => btn.classList.remove('active'));
-              
-              // 모든 루틴 콘텐츠 숨기기
-              const contents = document.querySelectorAll('.routine-content');
-              contents.forEach(content => content.classList.remove('active'));
-              
-              // 선택된 버튼과 콘텐츠 활성화
-              event.target.classList.add('active');
-              document.getElementById(routineType).classList.add('active');
-          }
-          
-          // 페이지 로드 시 아침 루틴이 기본으로 표시되도록 설정
-          document.addEventListener('DOMContentLoaded', function() {
-              document.getElementById('morning').classList.add('active');
-          });
-      </script>
+
+      <div class="routine-overview">
+        <h2>🎯 루틴 구성</h2>
+        <div class="time-info">
+          <div class="time-item">
+            <h3>아침</h3>
+            <p>5-10분</p>
+          </div>
+          <div class="time-item">
+            <h3>휴식시간</h3>
+            <p>10-15분</p>
+          </div>
+          <div class="time-item">
+            <h3>저녁</h3>
+            <p>15-20분</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="routine-selector">
+        <button class="routine-btn active" onclick="showRoutine('morning')">
+          🌅 아침 루틴
+        </button>
+        <button class="routine-btn" onclick="showRoutine('break')">
+          ☕ 휴식시간 루틴
+        </button>
+        <button class="routine-btn" onclick="showRoutine('evening')">
+          🌙 저녁 루틴
+        </button>
+      </div>
+
+      <div id="morning" class="routine-content active">
+        <div class="stretch-card">
+          <div class="stretch-title">
+            목과 어깨 깨우기 <span class="time-badge">2분</span>
+          </div>
+          <div class="stretch-description">
+            수면으로 경직된 목과 어깨 근육을 부드럽게 깨워줍니다.
+          </div>
+          <div class="instructions">
+            <h4>실행 방법:</h4>
+            <ol>
+              <li>어깨를 앞뒤로 천천히 돌리기 (각 방향 10회)</li>
+              <li>목을 좌우로 천천히 돌리기 (각 방향 5회)</li>
+              <li>목을 좌우로 기울여 측면 근육 늘리기 (각 15초)</li>
+            </ol>
+          </div>
+          <div class="tips">
+            <h4>💡 포인트:</h4>
+            <p>
+              급하게 하지 말고 천천히 진행하세요. 통증이 느껴지면 범위를
+              줄이세요.
+            </p>
+          </div>
+        </div>
+
+        <div class="stretch-card">
+          <div class="stretch-title">
+            척추 모빌리티 <span class="time-badge">3분</span>
+          </div>
+          <div class="stretch-description">
+            하루를 위해 척추의 움직임을 활성화시킵니다.
+          </div>
+          <div class="instructions">
+            <h4>실행 방법:</h4>
+            <ol>
+              <li>서서 허리를 좌우로 비틀기 (각 방향 10회)</li>
+              <li>캣-카우 자세 (무릎 꿇고 등을 둥글게/반대로 10회)</li>
+              <li>앞으로 구부리기 후 천천히 일어나기 (5회)</li>
+            </ol>
+          </div>
+          <div class="tips">
+            <h4>💡 포인트:</h4>
+            <p>
+              척추를 마디마디 느끼며 움직이세요. 호흡과 함께 진행하면 더
+              효과적입니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="break" class="routine-content">
+        <div class="stretch-card">
+          <div class="stretch-title">
+            어깨와 목 긴장 해소 <span class="time-badge">4분</span>
+          </div>
+          <div class="stretch-description">
+            장시간 컴퓨터 작업으로 경직된 상체 근육을 풀어줍니다.
+          </div>
+          <div class="instructions">
+            <h4>실행 방법:</h4>
+            <ol>
+              <li>어깨 으쓱하기 (10초 유지 후 힘 빼기, 5회)</li>
+              <li>팔을 반대편으로 당겨 어깨 뒤쪽 늘리기 (각 팔 30초)</li>
+              <li>목 뒤에서 팔꿈치 잡고 옆구리 늘리기 (각 30초)</li>
+              <li>턱 당기기로 목 뒤쪽 늘리기 (15초 유지, 5회)</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="stretch-card">
+          <div class="stretch-title">
+            허리와 엉덩이 활성화 <span class="time-badge">5분</span>
+          </div>
+          <div class="stretch-description">
+            앉아있기로 인해 굳어진 허리와 엉덩이 근육을 활성화합니다.
+          </div>
+          <div class="instructions">
+            <h4>실행 방법:</h4>
+            <ol>
+              <li>선 자세에서 무릎을 가슴으로 당기기 (각 다리 30초)</li>
+              <li>비둘기 자세 (각 다리 45초)</li>
+              <li>서서 고관절 돌리기 (각 방향 10회)</li>
+              <li>런지 자세로 고관절 앞쪽 늘리기 (각 다리 30초)</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="stretch-card">
+          <div class="stretch-title">
+            눈과 손목 케어 <span class="time-badge">2분</span>
+          </div>
+          <div class="stretch-description">
+            장시간 컴퓨터 사용으로 피로한 눈과 손목을 관리합니다.
+          </div>
+          <div class="instructions">
+            <h4>실행 방법:</h4>
+            <ol>
+              <li>눈동자 상하좌우 운동 (각 방향 10회)</li>
+              <li>손목 돌리기 (각 방향 10회)</li>
+              <li>손가락 펴고 오므리기 (10회)</li>
+              <li>손목을 반대편으로 당겨 늘리기 (각 15초)</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div id="evening" class="routine-content">
+        <div class="stretch-card">
+          <div class="stretch-title">
+            전신 이완 시퀀스 <span class="time-badge">8분</span>
+          </div>
+          <div class="stretch-description">
+            하루 종일 쌓인 전신의 긴장을 단계적으로 풀어줍니다.
+          </div>
+          <div class="instructions">
+            <h4>실행 방법:</h4>
+            <ol>
+              <li>차일드 포즈로 시작 (1분간 깊은 호흡)</li>
+              <li>캣-카우 자세로 척추 이완 (1분)</li>
+              <li>비둘기 자세 양쪽 (각 1분)</li>
+              <li>누워서 무릎을 가슴으로 당기기 (1분)</li>
+              <li>누운 비틀기 자세 (각쪽 1분)</li>
+              <li>다리 벽에 올리고 이완 (2분)</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="stretch-card">
+          <div class="stretch-title">
+            깊은 호흡과 명상 <span class="time-badge">7분</span>
+          </div>
+          <div class="stretch-description">
+            수면 준비와 스트레스 해소를 위한 마무리 루틴입니다.
+          </div>
+          <div class="instructions">
+            <h4>실행 방법:</h4>
+            <ol>
+              <li>편안한 자세로 앉기 (1분)</li>
+              <li>4-7-8 호흡법 (4초 들이마시기, 7초 참기, 8초 내쉬기, 5회)</li>
+              <li>바디스캔 명상 (발끝부터 머리까지 의식적으로 이완, 4분)</li>
+              <li>감사 명상 (하루 중 좋았던 것 3가지 떠올리기, 1분)</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="stretch-card">
+          <div class="stretch-title">
+            수면 준비 스트레칭 <span class="time-badge">5분</span>
+          </div>
+          <div class="stretch-description">
+            편안한 수면을 위한 마지막 몸 정리입니다.
+          </div>
+          <div class="instructions">
+            <h4>실행 방법:</h4>
+            <ol>
+              <li>침대에서 무릎 흔들기 (1분)</li>
+              <li>발목 돌리고 종아리 늘리기 (2분)</li>
+              <li>어깨 이완 및 목 마사지 (1분)</li>
+              <li>최종 이완 자세로 깊은 호흡 (1분)</li>
+            </ol>
+          </div>
+          <div class="tips">
+            <h4>💡 수면 팁:</h4>
+            <p>
+              스트레칭 후 바로 잠자리에 들어가세요. 스마트폰 사용은 자제하고
+              편안한 음악이나 백색소음을 활용하세요.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showRoutine(routineType) {
+        // 모든 버튼에서 active 클래스 제거
+        const buttons = document.querySelectorAll('.routine-btn');
+        buttons.forEach((btn) => btn.classList.remove('active'));
+
+        // 모든 루틴 콘텐츠 숨기기
+        const contents = document.querySelectorAll('.routine-content');
+        contents.forEach((content) => content.classList.remove('active'));
+
+        // 선택된 버튼과 콘텐츠 활성화
+        event.target.classList.add('active');
+        document.getElementById(routineType).classList.add('active');
+      }
+
+      // 페이지 로드 시 아침 루틴이 기본으로 표시되도록 설정
+      document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('morning').classList.add('active');
+      });
+    </script>
   </body>
-  </html>
-  ```
+</html>
+```
+
 </details>
 
 #### 미션 수행 소감
+
 답변 수준을 보고 정말 놀랐다. 무료 모델이라 처음에 큰 기대를 안했고,
 
-단순히 텍스트로 운동 루틴을 설명해줄 줄 알았는데, HTML/CSS/JS를 활용해서 실제 페이지처럼 시각화해 보여줬다. 
+단순히 텍스트로 운동 루틴을 설명해줄 줄 알았는데, HTML/CSS/JS를 활용해서 실제 페이지처럼 시각화해 보여줬다.
 
 마치 진짜 스트레칭 앱을 보는 것처럼 동작 구조나 화면 구성이 눈에 그려졌고, 그래서 루틴이 훨씬 직관적으로 이해됐다.
 
 설명만 읽을 때보다 훨씬 몰입감 있었고, AI가 단순히 정보를 전달하는 걸 넘어서, 이렇게 시각적으로까지 표현해줄 수 있다는 점이 인상 깊었고, 단순한 대화 이상의 가치를 느꼈다.
+
+---
+
+### J290 홍민정
+
+#### 수행 미션
+
+SHOW ME THE 개념
+
+- 막막함을 두 가지 원인으로 나누어 AI 활용법을 제안.<br />
+- ① 학습량이 많을 땐 작은 단위 커리큘럼을 요청<br />
+- ② 낯선 개념일 땐 비유를 통한 이해를 요청<br />
+- 스스로 만든 비유를 AI로 검증받아 이해를 깊게 할 수 있도록 개선
+
+#### 프롬프트
+
+```text
+word2vec에는 두가지 방식의 접근이 있다고 알고있어.
+난 크게 차이나보이지 않는데, 왜 방식이 두가지나 생긴건지 궁금해.
+개념이 낯설어서 그런데, 처음 보는 사람도 이해할 수 있게 실생활에서의 비유를 들어 설명해줄래?
+```
+
+#### 결과
+
+<img src="https://i.imgur.com/zUgruS9.png" alt="미션 수행 결과" width=500>
+
+| 항목 | CBOW               | Skip-Gram                 |
+| ---- | ------------------ | ------------------------- |
+| 특징 | 빠르고 효율적      | 느리지만 희귀 단어에 강함 |
+| 쓰임 | 대용량 학습에 적합 | 정밀도 높은 임베딩에 적합 |
+| 장점 | 학습 속도 빠름     | 드문 단어도 잘 학습함     |
+
+- CBOW는 빠르게 "전체적인 단어 관계"를 파악할 때 좋다.
+- Skip-Gram은 특히 드물게 등장하지만 중요한 단어까지 잘 잡아낸다.
+
+#### 미션 수행 소감
+
+구현에 급급해 미처 해결하지 못하고 진행했던 궁금증이 있었다.<br>간단하게 찾아봤지만 왜 굳이 두 가지 방식이 유사한 구조로 이루어져있는데 정 반대로 진행되는 것인지 이해할 수 없었다.<br>이렇게 실생활 비유를 들어 접하니 훨씬 더 이해가 수월했던 것 같다.
+
+나중에 현업에 나가면 비전공자를 설득할 일이 분명 있을 것 같다.<br>그 때, 이렇게 실생활 비유를 드는 습관은 정말 큰 도움이 될 것 같다.<br>종종 AI에게 비유를 묻거나 비유에 대한 평가를 받으며 내 지식의 풀을 늘려가야겠다.
